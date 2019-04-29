@@ -4,7 +4,7 @@
 from __future__ import division
 
 import numpy as np
-import skimage.color
+from skimage.color import lab2rgb, lch2lab
 
 try:
     import matplotlib.pyplot as pl
@@ -12,7 +12,7 @@ try:
     from matplotlib.colors import LinearSegmentedColormap
 
     def lch2rgb(x):
-        return skimage.color.lab2rgb(skimage.color.lch2lab([[x]]))[0][0]
+        return lab2rgb(skimage.color.lch2lab([[x]]))[0][0]
 
     # define our colors using Lch
     # note that we intentionally vary the lightness during interpolation so as to better
